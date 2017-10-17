@@ -1,0 +1,50 @@
+<!-- index.html -->
+    <!DOCTYPE html>
+<html ng-app="angApp">
+    <html>
+    <head>
+      <!-- SCROLLS -->
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="main.js"></script>
+    </head>
+    <body>
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#kitchen"><i class="fa fa-shield"></i> Kitchen</a></li>
+		    <li><a href="#ballroom"><i class="fa fa-shield"></i> Ballroom</a></li>
+                    <li><a href="#library"><i class="fa fa-comment"></i> Library</a></li>
+		    <li><a href="#lounge"><i class="fa fa-shield"></i> Lounge</a></li>
+		    <li><a href="#hall"><i class="fa fa-shield"></i> Hall</a></li>
+<li><a href="#conserv"><i class="fa fa-shield"></i> Conservatory</a></li>
+<li><a href="#study"><i class="fa fa-shield"></i> Study</a></li>
+<li><a href="#dining"><i class="fa fa-shield"></i> Dining</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+
+         <body ng-controller="mainController">
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main">
+<div ng-view></div>
+    </div>
+
+    </body>
+    </html>
