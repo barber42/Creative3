@@ -102,8 +102,7 @@ console.log("in 3");
 		$(indexNum).replaceWith("The room is impeccably clean, no one has been in here recently.");
 	}
 }
-$(numb1).prop("disabled", true);
-$(numb2).prop("disabled", true);
+
 });
 
 });
@@ -121,7 +120,7 @@ $(numb2).prop("disabled", true);
             <div id="{{$index}}" ng-show="hiddenDiv">
 
 	<h2>Make a Deduction...</h2>
-	<p>Now that you have reached the room, you may begin to search for clues. Choose a suspect and a potential murder weapon to learn more about what happened. Be warned, you can only learn about one piece of evidence at a time.</p>
+	<p>Now that you have reached the room, you may begin to search for clues. Choose a suspect and a potential murder weapon to learn more about what happened.</p>
 	<form id="question{{$index}}">
 	<h3>I think it might have been<h3>
 	 <select id="perp{{$index}}" name="pers" value="p">	</select>
