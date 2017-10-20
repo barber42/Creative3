@@ -1,49 +1,124 @@
-<!DOCTYPE.html>
-
-<html ng-app="angApp">
-
 <html>
 <head>
-<title>CLUE</title>
+    <title></title>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+<script src="clue.js"></script>
 
-<!--ANGULAR -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-<!--MY SCRIPT--> 
-<script src="clue.js"></script>t>
-<!--BOOTSTRAP-->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script> 
+	$(document).ready(function() {
+		var people=["Miss Scarlett","Professor Plum","Mrs. Peacock","Mr Green","Colonel Mustard","Mrs. White"];
+		var weapons=["Candlestick","Knife","Lead Pipe","Revolver","Rope","Wrench"];
+		var rooms=["Kitchen","Ballroom","Library","Lounge","Hall","Conservatory","Study","Dining"];
+		var x=Math.floor((Math.random() * 6));
+		var y=Math.floor((Math.random() * 6));
+		var z=Math.floor((Math.random() * 8));
+		console.log(x,y,z);		
+		var winning={person:people[x],weapon:weapons[y],room:rooms[z]};
+		console.log(winning.person);
+		console.log(winning.weapon);
+		console.log(winning.room);
+console.log(people[1]);
 
-<style>
+$("#reset").click(function(){
+$("#weap").prop("disabled", false);
+$("#perp").prop("disabled", false);
+});
 
-</style>
+
+$("#guess").click(function(){
+var test=Math.floor((Math.random() * 3)+1);
+console.log("test");
+var temp1=$("#perp").val();
+var temp2=$("#weap").val();
+var temp3=$("#loc").val();
+console.log(temp1);
+console.log(temp2);
+console.log(temp3);
+console.log(test);
+
+if(test=='1')
+{
+	if(temp1==winning.person)
+	{
+		console.log("in 1");
+		$('#results').replaceWith("...");
+	}
+	else{
+console.log("in 1");
+		$('#results').replaceWith(temp1);
+	}
+}
+if(test=='2')
+{
+	if(temp2==winning.weapon)
+	{
+console.log("in 2");
+		$('#results').replaceWith("...");
+	}
+	else{
+console.log("in 2");
+		$('#results').replaceWith(temp2);
+	}
+}
+if(test=='3')
+{
+	if(temp3==winning.room)
+	{
+console.log("in 3");
+		$('#results').replaceWith("...");
+	}
+	else{
+console.log("in 3");
+		$('#results').replaceWith(temp3);
+	}
+}
+$("#perp").prop("disabled", true);
+$("#weap").prop("disabled", true);
+});
+
+});
+
+	</script>
+
 
 </head>
-
-<body>
-
-<div ng-app="myApp" ng-controller="myCtrl" height="275px" width="275px">
-
-<a href="#kitchen"><img src="TestTiles/KitchenTT.jpg"></a>
-<a href="#ballroom"><img src="TestTiles/BallroomTT.jpg"></a>
-<a href="#conserv"><img src="TestTiles/ConservatoryTT.jpg"></a>
-<BR>
-<a href="#dining"><img src="TestTiles/DiningTT.jpg"></a>
-<a href="#"><img src="TestTiles/GuessTT.jpg"></a>
-<a href="#library"><img src="TestTiles/LibraryTT.jpg"></a>
-<br>
-<a href="#lounge"><img src="TestTiles/LoungeTT.jpg"></a>
-<a href="#hall"><img src="TestTiles/HallTT.jpg"></a>
-<a href="#study"><img src="TestTiles/StudyTT.jpg"></a>
-
-
-</div>
-
-
-
+<body ng-app="app" ng-controller="CommentController">
+    
+        <div ng-repeat="x in lists">
+            <button ng-click="hiddenDiv = !hiddenDiv" class="review">{{x}}</button>
+		
+            <div id="guesses" ng-show="hiddenDiv">
+	<p>Make a Deduction...</p>
+	<form id="question">
+	 <select id="perp" name="pers" value="p">	</select>
+	<select id="weap" name="gun" value="p"> </select>
+	<p> in the </p>
+	<select id="loc" name="place" value="p" disabled> <option>{{x}}</option></select>.
+	<input type="submit" id="guess")>
+	</form>
+	<button ng-click="hiddenDiv=!hiddenDiv" class="review" id="reset">Close</button>
+	<p id="results">results </p>
+<script>
+var people=["Miss Scarlett","Professor Plum","Mrs. Peacock","Mr Green","Colonel Mustard","Mrs. White"];
+var weapons=["Candlestick","Knife","Lead Pipe","Revolver","Rope","Wrench"];
+var sel = document.getElementById('perp');
+for(var i = 0; i < people.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = people[i];
+    opt.value = people[i];
+    sel.appendChild(opt);
+}
+var sel = document.getElementById('weap');
+for(var i = 0; i < weapons.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = weapons[i];
+    opt.value = weapons[i];
+    sel.appendChild(opt);
+}
 </script>
 
-</body>
-
+            </div>
+        </div>
+    </body>
 </html>
