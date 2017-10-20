@@ -114,8 +114,8 @@ $(numb2).prop("disabled", true);
 </head>
 <body ng-app="app" ng-controller="CommentController" style>
 <h1>Welcome to Clue!</h1>
-	<h3>You are an up-and-coming detective who was traveling back home after some time abroad. You were invited to visit your uncle, a butler for a wealthy banker who loves to host parties. Unfortunately, it seems that you arrived right after the banker has been killed by one of his guests! It's time to put your sleuthing skills to the test...</p> 
-        <div ng-repeat="x in lists">
+	<h3>You are an up-and-coming detective who was traveling back home after some time abroad. You were invited to visit your uncle, a butler for a wealthy banker who loves to host parties. Unfortunately, it seems that you arrived right after the banker has been killed by one of his guests! It's time to put your sleuthing skills to the test...</h3> 
+        <div ng-repeat="x in lists" id="setup">
             <button ng-click="hiddenDiv = !hiddenDiv" class="review"><img ng-src="{{x}}"height="250px" width="250px" margin="10px"></button>
 		
             <div id="{{$index}}" ng-show="hiddenDiv">
@@ -123,7 +123,7 @@ $(numb2).prop("disabled", true);
 	<h2>Make a Deduction...</h2>
 	<p>Now that you have reached the room, you may begin to search for clues. Choose a suspect and a potential murder weapon to learn more about what happened. Be warned, you can only learn about one piece of evidence at a time.</p>
 	<form id="question{{$index}}">
-	<h3>I think it might have been"<h3>
+	<h3>I think it might have been<h3>
 	 <select id="perp{{$index}}" name="pers" value="p">	</select>
 	<select id="weap{{$index}}" name="gun" value="p"> </select>
 	<h3> in the </h3>
@@ -191,10 +191,10 @@ for(var i = 0; i < weapons.length; i++) {
 	</form>
 <div id="winning" style="display:none;">
 	<h2>Congratulations!</h2>
-	<p>Thanks to your powers of deduction, the murderer didn't stand a chance! Upon hearing your story, they attempted to get away through the back door, only to be stopped by the rest of the guests. The police arrived soon after, and you are called a hero. They say your story will be in the newspapers tomorrow.</p>
+	<p>Thanks to your powers of deduction, the murderer didn't stand a chance! Upon hearing your story, they attempted to get away through the back door, only to be stopped by the rest of the guests. The police arrived soon after, and you are called a hero. They say your story will be in the newspapers tomorrow.<br><br><i>Refresh the page to play again.</i></p>
 </div>
 <div id="losing" style="display:none;">
-	<p>The guests all look at you in confusion. Clearly your detective skills aren't what you thought they were. Meanwhile, the murderer slips out back through the kitchen, completely scot-free.</p></p>
+	<p>The guests all look at you in confusion. Clearly your detective skills aren't what you thought they were. Meanwhile, the murderer slips out back through the kitchen, completely scot-free.<br><br><i>Refresh the page to try again</i></p>
 </div>
     </body>
 </html>
