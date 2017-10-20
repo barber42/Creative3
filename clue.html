@@ -1,12 +1,22 @@
 <html>
 <head>
-    <title></title>
+    <title>CLUE?</title>
+<style>
+body{
+	background-color: black;
+	color: white;
+}
+
+</style>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
 <script src="clue.js"></script>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script> 
 var ind=0;
+
+
+
 var people=["Miss Scarlett","Professor Plum","Mrs. Peacock","Mr Green","Colonel Mustard","Mrs. White"];
 		var weapons=["Candlestick","Knife","Lead Pipe","Revolver","Rope","Wrench"];
 		var rooms=["Kitchen","Ballroom","Library","Lounge","Hall","Conservatory","Study","Dining"];
@@ -102,11 +112,11 @@ $(numb2).prop("disabled", true);
 
 
 </head>
-<body ng-app="app" ng-controller="CommentController" >
+<body ng-app="app" ng-controller="CommentController" style>
 <h1>Welcome to Clue!</h1>
 	<h3>You are an up-and-coming detective who was traveling back home after some time abroad. You were invited to visit your uncle, a butler for a wealthy banker who loves to host parties. Unfortunately, it seems that you arrived right after the banker has been killed by one of his guests! It's time to put your sleuthing skills to the test...</p> 
         <div ng-repeat="x in lists">
-            <button ng-click="hiddenDiv = !hiddenDiv" class="review">{{x}}</button>
+            <button ng-click="hiddenDiv = !hiddenDiv" class="review"><img ng-src="{{x}}"height="250px" width="250px" margin="10px"></button>
 		
             <div id="{{$index}}" ng-show="hiddenDiv">
 
