@@ -1,0 +1,15 @@
+body{
+	background-color:brown;
+	color:white;
+}
+
+.review{
+	width:15%;
+	height:15%;
+	background-color:yellow;
+}
+
+#1,#2,#3,#4,#5,#6,#7 {
+	position:fixed;
+
+}

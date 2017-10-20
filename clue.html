@@ -61,11 +61,11 @@ if(test=='1')
 	if(temp1==winning.person)
 	{
 		console.log("in 1");
-		$(indexNum).replaceWith("...");
+		$(indexNum).replaceWith("No one can come forward to vouch for ",temp1," at the time of the murder.");
 	}
 	else{
 console.log("in 1");
-		$(indexNum).replaceWith(temp1);
+		$(indexNum).replaceWith(temp1," is greatly offended that you suspect them! They can offer a solid alibi at the time of murder.");
 	}
 }
 if(test=='2')
@@ -73,11 +73,11 @@ if(test=='2')
 	if(temp2==winning.weapon)
 	{
 console.log("in 2");
-		$(indexNum).replaceWith("...");
+		$(indexNum).replaceWith("You find that the ",temp2,"has been moved, and no one can find it.");
 	}
 	else{
 console.log("in 2");
-		$(indexNum).replaceWith(temp2);
+		$(indexNum).replaceWith("The ",temp2," is found stored away, with a layer of dust. No one has touched this recently.");
 	}
 }
 if(test=='3')
@@ -85,11 +85,11 @@ if(test=='3')
 	if(temp3==winning.room)
 	{
 console.log("in 3");
-		$(indexNum).replaceWith("...");
+		$(indexNum).replaceWith("You find evidence on the furniture and walls. It appears that there was a struggle here recently.");
 	}
 	else{
 console.log("in 3");
-		$(indexNum).replaceWith(temp3);
+		$(indexNum).replaceWith("The room is impeccably clean, no one has been in here recently.");
 	}
 }
 $(numb1).prop("disabled", true);
@@ -103,16 +103,20 @@ $(numb2).prop("disabled", true);
 
 </head>
 <body ng-app="app" ng-controller="CommentController" >
+<h1>Welcome to Clue!</h1>
+	<h3>You are an up-and-coming detective who was traveling back home after some time abroad. You were invited to visit your uncle, a butler for a wealthy banker who loves to host parties. Unfortunately, it seems that you arrived right after the banker has been killed by one of his guests! It's time to put your sleuthing skills to the test...</p> 
         <div ng-repeat="x in lists">
             <button ng-click="hiddenDiv = !hiddenDiv" class="review">{{x}}</button>
 		
             <div id="{{$index}}" ng-show="hiddenDiv">
 
-	<p>Make a Deduction...</p>
+	<h2>Make a Deduction...</h2>
+	<p>Now that you have reached the room, you may begin to search for clues. Choose a suspect and a potential murder weapon to learn more about what happened. Be warned, you can only learn about one piece of evidence at a time.</p>
 	<form id="question{{$index}}">
+	<h3>I think it might have been"<h3>
 	 <select id="perp{{$index}}" name="pers" value="p">	</select>
 	<select id="weap{{$index}}" name="gun" value="p"> </select>
-	<p> in the </p>
+	<h3> in the </h3>
 	<select id="loc{{$index}}" name="place" value="p" disabled> <option>{{x}}</option></select>.
 	<input type="submit" id="guess")>
 	</form>
@@ -141,8 +145,10 @@ for(var i = 0; i < weapons.length; i++) {
             </div>
         </div>
 <div id="finalAnswer">
-<p>I think that it was </p>
+<h2>The Moment of Truth... </h2>
+<p>This is your chance to finally oust the murderer! Once you feel you are ready, submit your deductions. But be warned, if you guess wrong, the murder will get away scot-free!</p>
 <form id="finalq">
+	<h3>Without a doubt, the murderer amoung us is</h3>
 	 <select id="perp" name="pers" value="p">
 		<option value="Miss Scarlet">Miss Scarlett</option>
 		<option value="Professor Plum">Professor Plum</option>
@@ -150,7 +156,8 @@ for(var i = 0; i < weapons.length; i++) {
 		<option value="Mr Green">Mr. Green</option>
 		<option value="Colonel Mustard">Colonel Mustard</option>
 		<option value="Mrs. White">Mrs. White</option>
-	</select>
+	</select>.
+	<h3>They committed the crime with a</h3>
 	<select id="weap" name="gun" value="p"> 
 		<option value="Candlestick">Candlestick</option>
 		<option value="Knife">Knife</option>
@@ -159,7 +166,7 @@ for(var i = 0; i < weapons.length; i++) {
 		<option value="Rope">Rope</option>
 		<option value="Wrench">Wrench</option>
 	</select>
-	<p> in the </p>
+	<h3>right under our noses in the </h3>
 	<select id="loc" name="place" value="p">
 		<option value="Kitchen">Kitchen</option>
 		<option value="Ballroom">Ballroom</option>
@@ -173,10 +180,11 @@ for(var i = 0; i < weapons.length; i++) {
 	<input type="submit" id="guessFinal")>
 	</form>
 <div id="winning" style="display:none;">
-	<p>You won!</p>
+	<h2>Congratulations!</h2>
+	<p>Thanks to your powers of deduction, the murderer didn't stand a chance! Upon hearing your story, they attempted to get away through the back door, only to be stopped by the rest of the guests. The police arrived soon after, and you are called a hero. They say your story will be in the newspapers tomorrow.</p>
 </div>
 <div id="losing" style="display:none;">
-	<p>You lose!</p>
+	<p>The guests all look at you in confusion. Clearly your detective skills aren't what you thought they were. Meanwhile, the murderer slips out back through the kitchen, completely scot-free.</p></p>
 </div>
     </body>
 </html>
