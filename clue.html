@@ -51,9 +51,11 @@ $("#losing").show();
 
 $("#question0 #guess,#question1 #guess, #question2 #guess, #question3 #guess, #question4 #guess, #question5 #guess,#question6 #guess,#question7 #guess").click(function(){
 var indexNum = $(this).parent().parent().attr('id');
+var number=indexNum;
 var numb1="#perp"+indexNum;
 var numb2="#weap"+indexNum;
 var numb3="#loc"+indexNum;
+resulNum="results"+number;
 indexNum="#"+indexNum+" h5";
 console.log(numb1);
 var test=Math.floor((Math.random() * 3)+1);
@@ -71,11 +73,13 @@ if(test=='1')
 	if(temp1==winning.person)
 	{
 		console.log("in 1");
-		$(indexNum).replaceWith("No one can come forward to vouch for ",temp1," at the time of the murder.");
+		var tempstring="<h5 id="+resulNum+">No one can come forward to vouch for "+temp1+" at the time of the murder.</h5>";
+		$(indexNum).replaceWith(tempstring);
 	}
 	else{
 console.log("in 1");
-		$(indexNum).replaceWith(temp1," is greatly offended that you suspect them! They can offer a solid alibi at the time of murder.");
+		var tempstring="<h5 id="+ resulNum + " >"+temp1+" is greatly offended that you suspect them! They can offer a solid alibi at the time of murder.</h5>";
+		$(indexNum).replaceWith(tempstring);
 	}
 }
 if(test=='2')
@@ -83,11 +87,14 @@ if(test=='2')
 	if(temp2==winning.weapon)
 	{
 console.log("in 2");
-		$(indexNum).replaceWith("You find that the ",temp2," has been moved, and no one can find it.");
+		var tempstring="<h5 id="+resulNum+">You find that the "+temp2+" has been moved, and no one can find it.</h5>";
+		$(indexNum).replaceWith(tempstring);
 	}
 	else{
 console.log("in 2");
-		$(indexNum).replaceWith("The ",temp2," is found stored away, with a layer of dust. No one has touched this recently.");
+		var tempstring="<h5 id="+resulNum+">The "+temp2+" is found stored away, with a layer of dust. No one has touched this recently.</h5>";
+		console.log(tempstring);
+		$(indexNum).replaceWith(tempstring);
 	}
 }
 if(test=='3')
@@ -95,11 +102,13 @@ if(test=='3')
 	if(temp3==winning.room)
 	{
 console.log("in 3");
-		$(indexNum).replaceWith("You find evidence on the furniture and walls. It appears that there was a struggle here recently.");
+		var tempstring="<h5 id="+resulNum+">You find evidence on the furniture and walls. It appears that there was a struggle here recently.</h5>";
+		$(indexNum).replaceWith(tempstring);
 	}
 	else{
 console.log("in 3");
-		$(indexNum).replaceWith("The room is impeccably clean, no one has been in here recently.");
+		var tempstring="<h5 id="+resulNum+">The room is impeccably clean, no one has been in here recently.</h5>";
+		$(indexNum).replaceWith(tempstring);
 	}
 }
 
@@ -120,14 +129,15 @@ console.log("in 3");
             <div id="{{$index}}" ng-show="hiddenDiv">
 
 	<h2>Make a Deduction...</h2>
-	<p>Now that you have reached the room, you may begin to search for clues. Choose a suspect and a potential murder weapon to learn more about what happened.</p>
+	<p>Now that you have reached the room, you may begin to search for clues. Choose a suspect and a potential murder weapon to learn more about what happened. Be warned, you can only learn about one piece of evidence at a time.</p>
 	<form id="question{{$index}}">
 	<h3>I think it might have been<h3>
 	 <select id="perp{{$index}}" name="pers" value="p">	</select>
 	<select id="weap{{$index}}" name="gun" value="p"> </select>
 	<h3> in the </h3>
 	<select id="loc{{$index}}" name="place" value="p" disabled> <option>{{x}}</option></select>.
-	<input type="submit" id="guess")>
+	<input type="button" value="Submit" id="guess">
+	<input type="reset" value="Reset">
 	</form>
 	<button ng-click="hiddenDiv=!hiddenDiv" class="review" id="reset">Close</button>
 	<h5 id="results{{$index}}">results </h5>
